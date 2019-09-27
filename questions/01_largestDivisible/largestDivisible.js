@@ -9,16 +9,27 @@ function largestDivisible(arr, num) {
 
     // first let's do this declaratively
 
-    for (let i = 0; i < arr.length; i++) {
-        let potential = arr[i];
+    // for (let i = 0; i < arr.length; i++) {
+    //     let potential = arr[i];
         
+    //     if (potential % num === 0 && largest === null) {
+    //         largest = potential;
+    //     }
+    //     else if (potential % num === 0 && potential > largest) {
+    //         largest = potential
+    //     }
+    // }
+
+    // now let us try functionally!
+
+    arr.forEach((potential) => {
         if (potential % num === 0 && largest === null) {
             largest = potential;
         }
         else if (potential % num === 0 && potential > largest) {
             largest = potential
         }
-    }
+    })
 
     return largest;
 }
