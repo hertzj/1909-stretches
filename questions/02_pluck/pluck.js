@@ -25,4 +25,31 @@ function pluck(obj, elements) {
   return newObj;
 }
 
+// my solution
+
+function pluckJH(obj, elements) {
+  const newObj = {};
+  for (let i = 0; i < elements.length; i++) {
+    let el = elements[i];
+    if (obj[el] !== undefined) {
+      newObj[el] = obj[el]
+    }
+  }
+
+  return newObj;
+}
+
+// could also make it more complicated for no real reason
+
+function pluckAgain(obj, elements) {
+  const newObj = {};
+  const keys = Object.keys(obj);
+  elements.forEach(el => {
+    if (keys.indexOf(el) > -1) {
+      newObj[el] = obj[el]
+    }
+  })
+  return newObj;
+}
+
 module.exports = { pluck };
