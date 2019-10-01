@@ -26,33 +26,73 @@ productWhichMadeMostMoney returns an object with an id for that product and a to
 
 //write the productWhichMadeMostMoney function
 
+function matcher(list, obj) {
+  for (let i = 0; i < list.length; i++) {
+    let newObj = list[i];
+    if (newObj.id === obj.productId) {
+      return true;
+    }
+  }
+  return false;
+}
+
+
+// eslint-disable-next-line complexity
 function bestSales(sales) {
-  let totalSales = {};
+  let totalSales = [];
   const bestSale = {}
+   
   if (sales.length === 0) {
     return bestSale;
   }
 
-  sales.forEach(sale => {
-      if (sale.productId === totalSales.id) {
-        totalSales.amount += sale.amount;
-      }
-      else {
-        totalSales.id = sale.productId;
-        totalSales.amount = sale.amount;
-      }
-  })
+  for (let i = 0; i < sales.length; i++) {
+    let sale = sales[i];
+    if (totalSales.length === 0) {
+      let totalSale = {};
+      totalSale.id = sale.productId;
+      totalSale.total = sale.amount;
+      totalSales.push(totalSale);
+      continue;
+    }
 
-  bestSale.id = null;
-  bestSale.amount = 0;
-  for (k in totalSales) {
-    if (totalSales.amount > bestSale.amount) {
-      bestSale.id = totalSales.id;
-      bestSale.amount = totalSales.amount;
+    else if (matcher(totalSales, sale)) {
+      for (let j = 0; j < totalSales.length; j++) {
+        let totalSale = totalSales[j];
+        if (sale.productId === totalSale.id) {
+          totalSale.total += sale.amount;
+          break;
+        }
+      }
+      continue;
+    }
+
+    else {
+      let totalSale = {};
+      totalSale.id = sale.productId;
+      totalSale.total = sale.amount;
+      totalSales.push(totalSale);
+    }
+    
+  
+  }
+
+  bestSale.id === null;
+  bestSale.total = 0;
+
+  for (let i = 0; i < totalSales.length; i++) {
+    let totalSale = totalSales[i];
+    if (totalSale.total > bestSale.total) {
+      bestSale.id = totalSale.id;
+      bestSale.total = totalSale.total
     }
   }
 
+
   return bestSale;
 }
+
+
+
 
 module.exports = { bestSales, sales };
