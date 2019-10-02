@@ -7,6 +7,19 @@ zip([
   {z: 2, y: 1}]) => {x: 3, y: 3, z: 3}
 */
 
-function zip(objs) {}
+function zip(objs) {
+  let zipped = {};
+  objs.forEach(obj => {
+    for (k in obj) {
+      if (zipped[k] === undefined) {
+        zipped[k] = obj[k]
+      }
+      else {
+        zipped[k] += obj[k]
+      }
+    }
+  })
+  return zipped;
+}
 
 module.exports = { zip };
