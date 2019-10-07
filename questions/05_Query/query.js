@@ -44,6 +44,28 @@ const items = [
 //       price: 4,
 //   }]
 
-function query(arr, obj) {}
+function query(arr, obj) {
+  const searchTerms = Object.entries(obj);
+  const found = []
+
+  for (let i = 0; i < searchTerms; i++) {
+    let pair = searchTerms[i];
+    let key = pair[0];
+    let value = pair[1];
+    for (let j = 0; j < arr.length; j++) {
+      let item = arr[i];
+      if (item[key] === value) {
+        found.push(item)
+      }
+      // if (item[key] !== value && found.length > 0) {
+      //   found.pop()
+      // }
+    }
+  } 
+
+  return found;
+
+}
+
 
 module.exports = { query, items };
