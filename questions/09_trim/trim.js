@@ -9,6 +9,8 @@ const trim = obj => {
 
     return trimmed;
 };
+// danger of this solution is that this will go up the object's entire prototype chain
+// the below solution will NOT do that but takes longer
 
 // const trim = obj => {
 //     const keys = Object.keys(obj);
