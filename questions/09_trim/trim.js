@@ -1,13 +1,24 @@
+// const trim = obj => {
+//     const trimmed = {};
+
+//     for (const k in obj) {
+//         if (obj[k] !== undefined && obj[k] !== null) {
+//             trimmed[k] = obj[k]
+//         }
+//     }
+
+//     return trimmed;
+// };
+
 const trim = obj => {
-    const trimmed = {};
+    const keys = Object.keys(obj);
 
-    for (const k in obj) {
-        if (obj[k] !== undefined && obj[k] !== null) {
-            trimmed[k] = obj[k]
+    return keys.reduce((trimmed, current) => {
+        if (obj[current] !== undefined && obj[current] !== null) {
+            trimmed[current] = obj[current]
         }
-    }
-
-    return trimmed;
+        return trimmed
+    }, {})
 };
 
 module.exports = { trim };
