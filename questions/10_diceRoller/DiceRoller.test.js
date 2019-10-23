@@ -48,7 +48,7 @@ describe('Dice Roller', () => {
     expect(fiveByThreeDice.history).toEqual(rollHistory);
   });
   //Extra credit below. Remove the 'x' and save to activate this test spec
-  xtest('the roll history, number of sides, and number of dice should be private', () => {
+  test('the roll history, number of sides, and number of dice should be private', () => {
     const tenByThree = new DiceRoller(10, 3);
     const rollHistory = [];
 

@@ -3,7 +3,27 @@
 // history property which outputs all of the previous rolls
 
 class DiceRoller {
-  //YOUR CODE
+  constructor(sides, numDice) {
+    if (typeof sides !== 'number' || typeof numDice !== 'number') {
+      throw 'I need a number!'
+    }
+    else if (sides < 1 || numDice < 1) {
+      throw 'Must be positive!'
+    }
+    this.sides = sides;
+    this.numDice = numDice;
+    this.history = [];
+  }
+
+  roll() {
+    let rolls = []
+    for (let i = 0; i < this.numDice; i++) {
+      let value = Math.ceil(Math.random() * this.sides);
+      rolls.push(value)
+    }
+    this.history.push(rolls)
+    return rolls;
+  }
 }
 
 module.exports = { DiceRoller };
