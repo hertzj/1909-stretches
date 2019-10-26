@@ -5,7 +5,12 @@
 class DiceRoller {
   constructor(sides, numDice) {
     if (typeof sides !== 'number' || typeof numDice !== 'number') {
-      throw 'I need a number!'
+      throw 'I need two numbers!'
+      // for completness should have if statements
+      // for all possible errors
+      // so that we state exactly what went wrong
+      // so would want if (!sides || !numDice) {throw 'bad'!}
+      // above this
     }
     else if (sides < 1 || numDice < 1) {
       throw 'Must be positive!'
