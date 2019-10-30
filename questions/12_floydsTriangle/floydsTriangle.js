@@ -31,4 +31,22 @@ const floydsTriangle = n => {
 
 };
 
+// FSA solution
+const floydsTriangleFSA = n => {
+    const triangle = [];
+    let curNum = 1;
+    for (let i = 0; i < n; i++) {
+        const curRow = [];
+        for(let j = 0; j <= i ; j++) {
+            curRow.push(curNum);
+            curNum++
+        }
+        triangle.push(curRow.join(''))
+    }
+
+    return triangle.join('\n');
+
+};
+
+
 module.exports = { floydsTriangle };
