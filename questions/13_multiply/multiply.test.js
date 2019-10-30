@@ -12,7 +12,7 @@ describe('multiply testing', () => {
   test('it returns the product of two numbers', () => {
     // test the type of the returned value
     const test1 = multiply(2,3);
-    expect(test1).toBe(6);
+    expect(typeof test1).toBe('number');
 
     // test that the returned value is correct
     const test2 = multiply(2, -1);
