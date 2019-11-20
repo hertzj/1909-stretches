@@ -6,8 +6,15 @@ class StatefulThing {
   constructor(initialState = {}) {
     this.state = initialState;
   }
-  setState() {
-    // YOUR CODE
+  setState(changes) {
+    let newState = {...this.state}
+    let changeKeys = Object.keys(changes);
+    changeKeys.forEach(key => {
+      if (newState[key]) {
+        newState[key] = changes[key]
+      }
+    })
+    return newState;
   }
 }
 
