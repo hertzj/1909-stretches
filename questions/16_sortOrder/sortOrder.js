@@ -10,6 +10,23 @@ function sortOrder(arrOfObj, sortKey, retKey) {
     
 };
 
+// FSA Solution
+
+function sortOrderFSA(arr, sorted, key) {
+    return arr
+        .sort((a, b) => {
+            if (a[sorted] < b[sorted]) {
+                return -1 // a will be first
+            }
+            else if (b[sorted] < a[sorted]) {
+                return 1 // b will be first
+            }
+            else return 0 // a and b stay in their places
+            
+        })
+        .map(element => element[key]);
+}
+
 
 
 
