@@ -5,6 +5,7 @@
 class StatefulThing {
   constructor(initialState = {}) {
     this.state = initialState;
+    this.prevStates = []
   }
   setState(changes) {
     let newState = {...this.state}
@@ -15,6 +16,13 @@ class StatefulThing {
       }
     })
     return newState;
+    // FSA solution
+    // this.prevStates.push(this.state)
+    // this.state = { ...this.state, ...changes }
+    // return this.state
+  }
+  goBack() {
+    this.state = this.prevStates.pop();
   }
 }
 
