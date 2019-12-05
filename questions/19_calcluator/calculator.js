@@ -19,6 +19,8 @@
 // get value() {
 //     return this.getValue()
 // }
+// could also be super cool and use private fields with #
+// don't have a constructor and instead have #value = 0; before all the methods
 class Calculator {
     constructor() {
         this.value = 0;
